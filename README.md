@@ -7,24 +7,21 @@ Check out Google's documentation on setting up dynamic DNS here: https://support
 
 ## How it works
 My script leverages the Google provided API to update the DNS record. It can be run one off in the command line or as a cron job.
-At this time, it requires mailutils (https://mailutils.org) to be correctly configured on your system. The script send an email upon completion/change of the IP.txt file.  
 
-This is my first github repository and first share of my code with the world. Please be kind but feedback and forks are always welcome. 
-If for some reason, you found this rather useful, a do enjoy a cold beer or hot coffee: [![coffee](https://www.buymeacoffee.com/assets/img/custom_images/black_img.png)](https://www.buymeacoffee.com/alteredworkshop)
+At this time, it requires mailutils (https://mailutils.org) to be correctly configured on your system. The script sends an email upon completion/change of the IP.txt file.  
 
 ## Setup
-After cloning the repository, you will need to set the configuration file. Navigate to where you clone the repository and make the following modifcations:
+After downloading the repository, you will need to set the configuration file. Navigate to where you clone the repository and take the following steps:
 
-* Rename the example_config.sh to config.sh
+* Open the configuration file
 
-```shell
-mv example_config.sh config.sh
-  ```
-* Open the config file and replace the curly brackets {} and anything in between with your system specific values.
 ```shell
 nano config.sh
 ```
-``` shell
+
+* Replace the curly bracketed variables `{ }` with your system specific values.
+
+```shell
 # Google DNS/Domain Hosting
 Google_DNS_User="{DDNS USER NAME}" #Google provided username for DDNS
 Google_DNS_Pass="{DDNS PASSWORD}" #Google provided password for DDNS
@@ -37,12 +34,31 @@ eMail="{eMail Address}"
 IPtxtPath="{PATH TO}/IP.txt"
 ```
 
-With the configuration complete, run the script with
+Below is an example of an updated configuration file.
+
+```shell
+# Google DNS/Domain Hosting
+Google_DNS_User="myusername" #Google provided username for DDNS
+Google_DNS_Pass="mypassword" #Google provided password for DDNS
+Google_Domain="mygoogledomain.com" #Domain name
+
+#Email
+eMail="my@myemail.com"
+
+#Path to "Last IP.txt"
+IPtxtPath="/home/pi/Google-DNS-Updater/IP.txt"
+```
+
+## Running
+
+The script can be run once off from the command line:
+
 ```shell
 bash GoogleDNSUpdate.sh
 ```
-Or place the script in a cron job.
+Or it can be placed in cron to run regularly depending on your system needs. 
 
-## Plans for improvment
+### Plans for improvement
 * Set email & command line alerts as optional
-* Improve managment of IP.txt
+  * Removing dependency on mailutils
+* Improve management of IP.txt
