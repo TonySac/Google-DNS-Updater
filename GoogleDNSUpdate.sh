@@ -19,7 +19,13 @@ then  # Only run script if the last IP address and current IP are different
     echo "$currentIP" > "$lastIPtxt" # Write the current WAN IP to the txt file
 # Update Google DNS Record
     URL="https://${Google_DNS_User}:${Google_DNS_Pass}@domains.google.com/nic/update?hostname=${Google_Domain}" #Google API call
+    if [ $eMail != "off" ] # User speificed an email for output
+    then
     echo "IP.txt updated from $lastIP to $currentIP" | mail -s "IP Updated" $eMail # Send email with txt/IP update
+    echo "IP.txt updated from $lastIP to $currentIP" # Print results if ran in terminal
+    curl -s $URL
+    echo
+    else # No email specified
     echo "IP.txt updated from $lastIP to $currentIP" # Print results if ran in terminal
     curl -s $URL
     echo
