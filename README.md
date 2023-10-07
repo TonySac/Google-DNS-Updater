@@ -1,6 +1,6 @@
 # Google-DNS-Updater
 
-:caution: As of October 6, 2023 I no longer use or maintain this script. I have switched to DDClient on OPNSense. :caution:
+⚠️ As of October 6, 2023 I no longer use or maintain this script. I have switched to DDClient on OPNSense. ⚠️
 
 This script is designed to call the Google API to update the dynamic DNS record for domains hosted on Google Domains. Check out Google's documentation on setting up dynamic DNS here: https://support.google.com/domains/answer/6147083.
 
