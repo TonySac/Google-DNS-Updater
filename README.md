@@ -1,5 +1,7 @@
 # Google-DNS-Updater
 
+:caution: As of October 6, 2023 I no longer use or maintain this script. I have switched to DDClient on OPNSense. :caution:
+
 This script is designed to call the Google API to update the dynamic DNS record for domains hosted on Google Domains. Check out Google's documentation on setting up dynamic DNS here: https://support.google.com/domains/answer/6147083.
 
 This script can be run one off in the command line or as a cron job. If you have [GNU Mailutils](https://mailutils.org) configured, this script can also be set up to send an email upon successful update of your DNS record.
